@@ -27,7 +27,47 @@
             }
         </script>
     </head>
-    <body class="bg-purple-100">
-        
+    <body class="bg-[#EEF]">
+        <header class="py-4 border-b border-[#C6BDBD]">
+            <nav class="flex justify-between px-24 py-3">
+                <div id="logo-title" class="flex items-center gap-1 cursor-pointer hover:scale-105 hover:text-primary transition-[transform_text]">
+                    <span class="text-xl font-semibold font-english">English</span>
+                    <img src="./assets/logo.png" alt="Logo"/>
+                    <span class="text-xl font-bangla">জানালা</span>
+                </div>
+                <div id="nav-btns" class="flex items-center gap-4">
+                    <a href="#">
+                        <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
+                            <span class="fas fa-question-circle"></span> FAQ
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
+                            <span class="fas fa-book-open"></span> Learn
+                        </button>
+                    </a>
+                    <a href="#">
+                        <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
+                            <span class="fas fa-arrow-right-from-bracket"></span> Logout
+                        </button>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section id="banner" class="flex justify-between items-center px-24 py-14">
+                <div id="banner-content" class="space-y-7 w-2/5">
+                    <p class="font-bangla font-medium text-2xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
+                    <form method="GET" class="flex flex-col items-start gap-y-5">
+                        <input type="text" name="username" value="" placeholder="Enter Your Username" class="w-28 hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md outline-none border border-slate-400 focus:border-primary focus:rounded"/>
+                        <input type="password" name="password" placeholder="Enter the Login Code (!@#$%^)" class="w-28 hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md outline-none border border-slate-400 focus:border-primary focus:rounded"/>
+                        <button type="submit" class="font-english font-semibold bg-primary rounded-md px-5 py-3 text-[#E0E7FF] hover:scale-105 active:scale-95 transition-transform">Get Started</button>
+                    </form>
+                </div>
+                <div id="banner-image">
+                    <img src="./assets/founder.png" alt="Founder & CEO"/>
+                </div>
+            </section>
+        </main>
     </body>
 </html>
