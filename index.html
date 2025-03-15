@@ -11,6 +11,18 @@
         <!--! Google Fonts CDN -->
         <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <title>English Janala</title>
+        <style>
+            code {
+                padding-inline: 0.25rem;
+                background-color: #FFFA;
+                color: #422AD5;
+                border-radius: 0.25rem;
+            }
+            code::selection {
+                background-color: #111 !important;
+                color: #866EF9 !important;
+            }
+        </style>
         <script>
             tailwind.config = {
                 theme: {
@@ -27,26 +39,29 @@
             }
         </script>
     </head>
-    <body class="bg-[#EEF]">
+    <body class="bg-[#EEF] selection:text-[#E0E7FF] selection:bg-primary">
         <header class="py-4 border-b border-[#C6BDBD]">
+            <!--! NavBar -->
             <nav class="flex justify-between px-24 py-3">
+                <!--! Logo & Title -->
                 <div id="logo-title" class="flex items-center gap-1 cursor-pointer hover:scale-105 hover:text-primary transition-[transform_text]">
                     <span class="text-xl font-semibold font-english">English</span>
                     <img src="./assets/logo.png" alt="Logo"/>
                     <span class="text-xl font-bangla">জানালা</span>
                 </div>
+                <!--! Buttons Displayed at Right -->
                 <div id="nav-btns" class="flex items-center gap-4">
                     <a href="#">
                         <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
                             <span class="fas fa-question-circle"></span> FAQ
                         </button>
                     </a>
-                    <a href="#">
+                    <a href="#vocabularies">
                         <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
                             <span class="fas fa-book-open"></span> Learn
                         </button>
                     </a>
-                    <a href="#">
+                    <a href="#faq">
                         <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
                             <span class="fas fa-arrow-right-from-bracket"></span> Logout
                         </button>
@@ -54,20 +69,109 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <section id="banner" class="flex justify-between items-center px-24 py-14">
+        <main class="space-y-52 mx-24 mt-16 mb-48">
+            <!--! Banner -->
+            <section id="banner" class="flex justify-between items-center">
+                <!--! Banner Text and LogIn Form -->
                 <div id="banner-content" class="space-y-7 w-2/5">
-                    <p class="font-bangla font-medium text-2xl">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
+                    <p class="font-bangla font-medium text-2xl text-zinc-900">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
+                    <!--! LogIn Form -->
                     <form method="GET" class="flex flex-col items-start gap-y-5">
                         <input type="text" name="username" value="" placeholder="Enter Your Username" class="w-28 hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md outline-none border border-slate-400 focus:border-primary focus:rounded"/>
                         <input type="password" name="password" placeholder="Enter the Login Code (!@#$%^)" class="w-28 hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md outline-none border border-slate-400 focus:border-primary focus:rounded"/>
                         <button type="submit" class="font-english font-semibold bg-primary rounded-md px-5 py-3 text-[#E0E7FF] hover:scale-105 active:scale-95 transition-transform">Get Started</button>
                     </form>
                 </div>
+                <!--! Banner Image Displayed at Right -->
                 <div id="banner-image">
-                    <img src="./assets/founder.png" alt="Founder & CEO"/>
+                    <img src="./assets/founder.png" alt="Founder & CEO" title="Founder & CEO"/>
+                </div>
+            </section>
+            <!--! Learn Vocabularies Section -->
+            <section id="vocabularies" class="space-y-10">
+                <!--! Section Header -->
+                <h2 class="text-4xl text-center font-bold font-english">Let's Learn <span class="text-[#00BBFF]">Vocabularies</span></h2>
+                <!--! Container containing Lessons -->
+                <div id="lesson-picker" class="flex justify-center items-center gap-x-5">
+                    <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
+                        <span class="fas fa-book-open"></span> Lesson-1
+                    </div>
+                    <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
+                        <span class="fas fa-book-open"></span> Lesson-2
+                    </div>
+                    <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
+                        <span class="fas fa-book-open"></span> Lesson-3
+                    </div>
+                    <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
+                        <span class="fas fa-book-open"></span> Lesson-4
+                    </div>
+                    <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
+                        <span class="fas fa-book-open"></span> Lesson-5
+                    </div>
+                </div>
+                <div id="lesson-content" class="space-y-3 text-center py-16 bg-[#E0E7FF] rounded-xl">
+                    <p class="text-79716B font-bangla text-[#79716B]" title="You haven't selected any lesson yet">আপনি এখনো কোন Lesson Select করেন নি</p>
+                    <h2 class="text-4xl font-medium font-bangla" title="Select a Lesson">একটি Lesson Select করুন</h2>
+                </div>
+            </section>
+            <section id="faq" class="pt-6 pb-20 space-y-5">
+                <h2 class="text-4xl text-center font-bold font-english">Frequently Asked <span class="text-[#00BBFF]">Questions</span></h2>
+                <div class="faq-item bg-[#E0E7FF] rounded-lg p-5">
+                    <div class="question-and-toggle flex justify-between items-center">
+                        <h6 class="question text-lg font-medium font-english">1. What is the difference between <code>var</code>, <code>let</code>, <code>const</code>?</h6>
+                        <p class="fas fa-plus text-primary cursor-pointer"></p>
+                    </div>
+                    <div class="answer"></div>
+                </div>
+                <div class="faq-item bg-[#E0E7FF] rounded-lg p-5">
+                    <div class="question-and-toggle flex justify-between items-center">
+                        <h6 class="question text-lg font-medium font-english">2. What is the difference between <code>map()</code>, <code>forEach()</code>, <code>filter()</code>?</h6>
+                        <p class="fas fa-plus text-primary cursor-pointer"></p>
+                    </div>
+                    <div class="answer"></div>
+                </div>
+                <div class="faq-item bg-[#E0E7FF] rounded-lg p-5">
+                    <div class="question-and-toggle flex justify-between items-center">
+                        <h6 class="question text-lg font-medium font-english">3. Explain Arrow Functions and they are different from regular functions.</h6>
+                        <p class="fas fa-plus text-primary cursor-pointer"></p>
+                    </div>
+                    <div class="answer"></div>
+                </div>
+                <div class="faq-item bg-[#E0E7FF] rounded-lg p-5">
+                    <div class="question-and-toggle flex justify-between items-center">
+                        <h6 class="question text-lg font-medium font-english">4. How <code>JavaScript</code> <code>Promises</code> work?</h6>
+                        <p class="fas fa-plus text-primary cursor-pointer"></p>
+                    </div>
+                    <div class="answer"></div>
+                </div>
+                <div class="faq-item bg-[#E0E7FF] rounded-lg p-5">
+                    <div class="question-and-toggle flex justify-between items-center">
+                        <h6 class="question text-lg font-medium font-english">5. How <code>Closure</code> works in <code>JavaScript</code>?</h6>
+                        <p class="fas fa-plus text-primary cursor-pointer"></p>
+                    </div>
+                    <div class="answer"></div>
                 </div>
             </section>
         </main>
+        <footer class="border-t-2 border-purple-200 px-20 py-24 flex justify-between items-end">
+            <div id="footer-content" class="space-y-4">
+                <div id="foot-logo-title" class="flex items-center gap-1 cursor-pointer hover:text-[#00AAFF] transition-[color] duration-300">
+                    <span class="text-xl font-semibold font-english">English</span>
+                    <img src="./assets/logo.png" alt="Logo"/>
+                    <span class="text-xl font-bangla">জানালা</span>
+                </div>
+                <h5 class="font-bangla font-medium text-xl" title="Learn English easily">ইংরেজি শিখুন সহজে</h5>
+                <p class="font-bangla font-medium">Providing ED-Tech Applications since 2025</p>
+            </div>
+            <div id="social" class="space-y-4">
+                <h6 class="font-semibold font-english text-[#18181B]">FOLLOW US</h6>
+                <div id="social-icons" class="flex gap-x-4 text-3xl">
+                    <a href="" title="450+ Followers" class="fab fa-linkedin hover:text-blue-700 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="" title="5+ Followers" class="fab fa-github hover:text-slate-700 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="" title="280+ Friends" class="fab fa-facebook hover:text-blue-500 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="" title="10+ Followers" class="fab fa-x-twitter hover:text-black hover:scale-125 transition-[transform_color] duration-200"></a>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
