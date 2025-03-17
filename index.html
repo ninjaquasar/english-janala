@@ -8,8 +8,6 @@
         <script src="https://cdn.tailwindcss.com"></script>
         <!--! Font Awesome CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-        <!--! DaisyUI CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@$5/themes.css" rel="stylesheet" type="text/css" />
         <!--! Google Fonts CDN -->
         <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <title>English Janala</title>
@@ -42,7 +40,7 @@
         </script>
     </head>
     <body class="bg-[#EEF] selection:text-[#E0E7FF] selection:bg-primary">
-        <header class="py-4 border-b border-[#C6BDBD] bg-[#DDE]">
+        <header class="py-4 border-b border-[#C6BDBD] bg-[#DDE] hidden">
             <!--! NavBar -->
             <nav class="flex justify-between px-24 py-3">
                 <!--! Logo & Title -->
@@ -65,11 +63,9 @@
                             <span class="fas fa-book-open"></span> Learn
                         </button>
                     </a>
-                    <a href="#faq">
-                        <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
-                            <span class="fas fa-arrow-right-from-bracket"></span> Logout
-                        </button>
-                    </a>
+                    <button type="button" class="font-english font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-300 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none">
+                        <span class="fas fa-arrow-right-from-bracket"></span> Logout
+                    </button>
                 </div>
             </nav>
         </header>
@@ -81,7 +77,7 @@
                     <h1 class="text-5xl font-bold font-english"><span class="text-[#00BBFF]">English</span> is Easy!!</h1>
                     <p class="font-bangla font-medium text-2xl text-zinc-700">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
                     <!--! LogIn Form -->
-                    <form method="GET" class="flex flex-col items-start gap-y-5">
+                    <form method="POST" id="login-form" class="flex flex-col items-start gap-y-5">
                         <input type="text" name="username" value="" placeholder="Enter Your Username" class="w-[8.25rem] hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md bg-[#DDE] focus:bg-inherit outline-none border border-slate-400 focus:border-primary focus:rounded"/>
                         <input type="password" name="password" placeholder="Enter the Login Code (!@#$%^)" class="w-[8.25rem] hover:w-[17.25rem] focus:w-[17.25rem] transition-[width] duration-300 px-3 py-2 font-english rounded-md outline-none bg-[#DDE] focus:bg-inherit border border-slate-400 focus:border-primary focus:rounded"/>
                         <button type="submit" class="font-english font-semibold bg-primary rounded-md px-5 py-3 text-[#E0E7FF] hover:scale-105 active:scale-95 transition-transform">Get Started</button>
@@ -93,7 +89,7 @@
                 </div>
             </section>
             <!--! Learn Vocabularies Section -->
-            <section id="vocabularies" class="space-y-10">
+            <section id="vocabularies" class="space-y-10 hidden">
                 <!--! Section Header -->
                 <h2 class="text-4xl text-center font-bold font-english">Let's Learn <span class="text-[#00BBFF]">Vocabularies</span></h2>
                 <!--! Container containing Lessons -->
@@ -108,7 +104,7 @@
                 </div>
             </section>
             <!--! FAQ Section -->
-            <section id="faq" class="pt-6 pb-20 space-y-5">
+            <section id="faq" class="pt-6 pb-20 space-y-5 hidden">
                 <h2 class="text-4xl text-center font-bold font-english">Frequently Asked <span class="text-[#00BBFF]">Questions</span></h2>
                 <div class="faq-item bg-[#DDE] rounded-lg p-5">
                     <div class="question-and-toggle flex justify-between items-center">
@@ -165,8 +161,8 @@
                     <a href="https://www.linkedin.com/in/riaurko/" target="_blank" title="450+ Followers
 375+ Connections" class="fab fa-linkedin hover:text-blue-700 hover:scale-125 transition-[transform_color] duration-200"></a>
                     <a href="https://github.com/riaurko/" target="_blank" title="15+ Repositories" class="fab fa-github hover:text-slate-700 hover:scale-125 transition-[transform_color] duration-200"></a>
-                    <a href="" title="280+ Friends" class="fab fa-facebook hover:text-blue-500 hover:scale-125 transition-[transform_color] duration-200"></a>
-                    <a href="" title="10+ Followers" class="fab fa-x-twitter hover:text-black hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="https://www.facebook.com/riaurko" target="_blank" title="280+ Friends" class="fab fa-facebook hover:text-blue-500 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="https://x.com/riaurko" target="_blank" title="10+ Followers" class="fab fa-x-twitter hover:text-black hover:scale-125 transition-[transform_color] duration-200"></a>
                 </div>
             </div>
         </footer>
