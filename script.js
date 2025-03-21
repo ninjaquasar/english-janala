@@ -1,9 +1,11 @@
 /*
-? Fetch Levels Data from API and display them on Site and show the Active one diff-styled Dynamically.
-? Fetch Words Data from API and display them on Site with Pretty Design like Figma.
-? If no Words exist in a Lesson, then show an Error-like Message.
-? Build Vocabulary Details Modal for every Vocabulary Words Dynamically.
-! Apply Code-based LogIn and LogOut System
+? Fetch Levels Data from API and display them on Site and show the Active one diff-styled Dynamically
+? Fetch Words Data from API and display them on Site with Pretty Design like Figma
+? If no Words exist in a Lesson, then show an Error-like Message
+? Build Vocabulary Details Modal for every Vocabulary Words Dynamically
+? Apply Code-based LogIn and LogOut System
+? Implement Smooth Scrolling on Bookmarks
+! Develop & Insert a Loading Spinner that appears only when the Lesson Vocabularies loads and displays
 */
 
 
@@ -17,18 +19,15 @@ fetch("https://openapi.programming-hero.com/api/levels/all")
 })
 
 const displayLessons = (lessons) => {
-    //? Getting the Container
     const lessonContainer = document.getElementById('lesson-picker');
     for (const lesson of lessons)
     {
-        //? Creating the Box (Element) of a Lesson
         const lessonElement = document.createElement('div');
         lessonElement.innerHTML = `
         <span class="fas fa-book-open"></span> Lesson-${lesson.level_no}
         `;
         lessonElement.classList.add('lesson', 'font-english', 'flex', 'items-center', 'gap-x-2', 'font-semibold', 'border', 'border-primary', 'rounded', 'px-4', 'py-2', 'text-primary', 'hover:bg-primary', 'transition-[shadow_background_text]', 'duration-200', 'hover:text-[#E0E7FF]', 'hover:shadow-md', 'hover:shadow-indigo-500', 'active:shadow-none', 'cursor-pointer');
         lessonElement.setAttribute('title', lesson.lessonName);
-        //? Displaying it on Web Page
         lessonContainer.appendChild(lessonElement);
     }
 }
@@ -36,24 +35,20 @@ const displayLessons = (lessons) => {
 
 //! Task-2
 
-//? Adding EventListener in Lesson Boxes
 document.getElementById('lesson-picker').addEventListener('click', function(event){
     if (event.target.classList.contains('lesson'))
     {
-        //? Deactivating previously activated Lesson Boxes
         const lessons = document.querySelectorAll('#lesson-picker div');
         lessons.forEach(lesson => {
             lesson.classList.replace('text-[#E0E7FF]', 'text-primary');
             lesson.classList.remove('bg-primary');
         })
-        //? Activating the Clicked Lesson Box
         event.target.classList.replace('text-primary', 'text-[#E0E7FF]');
         event.target.classList.add('bg-primary');
         //? Fetching Words
         fetch(`https://openapi.programming-hero.com/api/level/${event.target.innerText.charAt(7)}`)
         .then(response => response.json())
         .then(data => {
-            //? Checking if the Lesson has Words or not
             if (data.data.length === 0)
                 noWordError();
             else
@@ -62,20 +57,18 @@ document.getElementById('lesson-picker').addEventListener('click', function(even
     }
 })
 
+
 const displayWords = (words) => {
     const wordsContainer = document.getElementById('lesson-content');
     wordsContainer.innerHTML = "";
     wordsContainer.classList.replace('py-16', 'p-8');
     wordsContainer.classList.add('grid', 'grid-cols-3', 'gap-8');
     for (const word of words) {
-        //? Defining Word Info in Variables
         const wordName = word.word;
         const wordMeaning = word.meaning;
         const wordPronunciation = word.pronunciation;
-        //? Creating the Box of a Word Info
         const wordBox = document.createElement('div');
         wordBox.classList.add('word-box', 'bg-[#EEF]', 'h-full', 'rounded-xl', 'p-12', 'space-y-5');
-        //? Creating Elements inside the Box
         const wordId = document.createElement('p');
         wordId.innerText = word.id;
         wordId.classList.add('hidden');
@@ -95,9 +88,8 @@ const displayWords = (words) => {
         wordIconsContainer.classList.add('flex', 'justify-between');
         wordIconsContainer.innerHTML = `
                 <h4 class="fas fa-circle-info text-slate-700 bg-blue-100 rounded-lg px-4 py-3 text-2xl cursor-pointer hover:text-primary active:text-indigo-600"></h4>
-                <h4 class="fas fa-volume-high text-slate-700 bg-blue-100 rounded-lg px-4 py-3 text-2xl  hover:text-primary active:text-indigo-500"></h4>
+                <h4 class="fas fa-volume-high text-slate-700 bg-blue-100 rounded-lg px-4 py-3 text-2xl hover:text-primary active:text-indigo-500"></h4>
                 `;
-        //? Displaying on Web Page
         wordBox.append(wordId, wordNameEl, MPSyntax, wordMP, wordIconsContainer);
         wordsContainer.appendChild(wordBox);
     }
@@ -145,7 +137,7 @@ const showWordModal = (word) => {
         }
     }
     const modal = document.createElement('dialog');
-    modal.classList.add('modal', 'bg-[#DDDDFF70]', 'p-6', 'rounded-xl', 'space-y-6', 'backdrop-blur');
+    modal.classList.add('modal', 'bg-[#DDDDFF90]', 'p-6', 'rounded-xl', 'space-y-6', 'backdrop-blur');
     modal.innerHTML = `
     <div class="border-2 border-[#EEE7] rounded-xl p-6 transition-all space-y-8">
         <h2 class="text-4xl font-semibold font-english">${word.word} (<span class="font-bangla"><span class="fas fa-microphone-lines"></span> : ${word.pronunciation}</span>)</h2>
@@ -178,11 +170,11 @@ const showWordModal = (word) => {
 
 document.getElementById('login-form').addEventListener('submit', function(event){
     event.preventDefault();
-    const username = event.target.parentNode.querySelector('input[type="text"]').value;
-    const password = event.target.parentNode.querySelector('input[type="password"]').value;
-    LoginUser(username, password);
-    event.target.parentNode.querySelector('input[type="text"]').value = '';
-    event.target.parentNode.querySelector('input[type="password"]').value = '';
+    const username = event.target.parentNode.querySelector('input[type="text"]');
+    const password = event.target.parentNode.querySelector('input[type="password"]');
+    LoginUser(username.value, password.value);
+    username.value = '';
+    password.value = '';
 })
 
 const LoginUser = (username, password) => {

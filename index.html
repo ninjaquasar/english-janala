@@ -1,28 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html class="scroll-smooth" data-theme="light">  <!--! Task-6 -->
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <link rel="icon" href="./assets/logo.png" type="image/x-icon">
         <!--! Tailwind CDN -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <!--! DaisyUI CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css" />
         <!--! Font Awesome CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
         <!--! Google Fonts CDN -->
         <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <title>English Janala</title>
-        <style>
-            code {
-                padding-inline: 0.25rem;
-                background-color: #FFFA;
-                color: #422AD5;
-                border-radius: 0.25rem;
-            }
-            code::selection {
-                background-color: #111 !important;
-                color: #866EF9 !important;
-            }
-        </style>
         <script>
             tailwind.config = {
                 theme: {
@@ -40,7 +30,7 @@
         </script>
     </head>
     <body class="bg-[#EEF] selection:text-[#E0E7FF] selection:bg-primary">
-        <header class="py-4 border-b border-[#C6BDBD] bg-[#DDE] hidden">
+        <header class="py-4 border-b border-[#C6BDBD] bg-[#DDE7] hidden fixed top-0 left-0 w-full backdrop-blur">
             <!--! NavBar -->
             <nav class="flex justify-between px-24 py-3">
                 <!--! Logo & Title -->
@@ -69,7 +59,7 @@
                 </div>
             </nav>
         </header>
-        <main class="space-y-52 mx-24 mt-16 mb-48">
+        <main class="space-y-52 mx-24 pt-16 mb-48">
             <!--! Banner -->
             <section id="banner" class="flex justify-between items-center">
                 <!--! Banner Text and LogIn Form -->
@@ -89,14 +79,11 @@
                 </div>
             </section>
             <!--! Learn Vocabularies Section -->
-            <section id="vocabularies" class="space-y-10 hidden">
+            <section id="vocabularies" class="pt-24 space-y-10 hidden">
                 <!--! Section Header -->
                 <h2 class="text-4xl text-center font-bold font-english">Let's Learn <span class="text-[#00BBFF]">Vocabularies</span></h2>
                 <!--! Container containing Lessons -->
                 <div id="lesson-picker" class="flex justify-center items-center gap-x-5">
-                    <!-- <div class="lesson font-english flex items-center gap-x-2 font-semibold border border-primary rounded px-4 py-2 text-primary hover:bg-primary transition-[shadow_background_text] duration-200 hover:text-[#E0E7FF] hover:shadow-md hover:shadow-indigo-500 active:shadow-none cursor-pointer">
-                        <span class="fas fa-book-open"></span> Lesson-1
-                    </div> -->
                 </div>
                 <div id="lesson-content" class="space-y-3 text-center py-16 bg-[#DDE] rounded-2xl">
                     <p class="font-bangla text-[#79716B]" title="You haven't selected any lesson yet">আপনি এখনো কোন Lesson Select করেন নি</p>
@@ -104,42 +91,32 @@
                 </div>
             </section>
             <!--! FAQ Section -->
-            <section id="faq" class="pt-6 pb-20 space-y-5 hidden">
+            <section id="faq" class="pt-24 pb-20 space-y-5 hidden">
                 <h2 class="text-4xl text-center font-bold font-english">Frequently Asked <span class="text-[#00BBFF]">Questions</span></h2>
-                <div class="faq-item bg-[#DDE] rounded-lg p-5">
-                    <div class="question-and-toggle flex justify-between items-center">
-                        <h6 class="question text-lg font-medium font-english">1. What is the difference between <code>var</code>, <code>let</code>, <code>const</code>?</h6>
-                        <p class="fas fa-plus text-primary cursor-pointer"></p>
-                    </div>
-                    <div class="answer"></div>
+                <div class="collapse collapse-plus bg-[#DDE] rounded-xl p-5">
+                    <input type="radio" name="faq-toggle" checked />
+                    <h4 class="collapse-title text-2xl font-semibold">What is the difference between var, let, and const?</h4>
+                    <p class="collapse-content">In JavaScript, var, let, and const differ in scope, re-declaration, initialization, and hoisting.<br>Scope: var has function scope, while let and const have block scope.<br>Re-declaration & Updates: var can be updated and re-declared. let can be updated but not re-declared. const cannot be updated or re-declared.<br>Initialization: var and let can be declared without initialization, but const must be initialized at declaration.<br>Hoisting: var is hoisted and initialized with undefined, while let and const are hoisted but not initialized, causing an error if accessed before declaration.<br>Use let for variables that change and const for constants. Avoid var due to its functional scope and hoisting behavior.</p>
                 </div>
-                <div class="faq-item bg-[#DDE] rounded-lg p-5">
-                    <div class="question-and-toggle flex justify-between items-center">
-                        <h6 class="question text-lg font-medium font-english">2. What is the difference between <code>map()</code>, <code>forEach()</code>, <code>filter()</code>?</h6>
-                        <p class="fas fa-plus text-primary cursor-pointer"></p>
-                    </div>
-                    <div class="answer"></div>
+                <div class="collapse collapse-plus bg-[#DDE] rounded-xl p-5">
+                    <input type="radio" name="faq-toggle" checked />
+                    <h4 class="collapse-title text-2xl font-semibold">What is the difference between map(), forEach(), and filter()?</h4>
+                    <p class="collapse-content">map() is used to transform elements in an array and returns a new array with the modified values. It does not change the original array. forEach() is used to iterate over elements in an array and perform operations, but it does not return a new array. It is mainly used for executing side effects, like logging data. filter() creates a new array with elements that meet a specific condition, filtering out the rest.</p>
                 </div>
-                <div class="faq-item bg-[#DDE] rounded-lg p-5">
-                    <div class="question-and-toggle flex justify-between items-center">
-                        <h6 class="question text-lg font-medium font-english">3. Explain Arrow Functions and they are different from regular functions.</h6>
-                        <p class="fas fa-plus text-primary cursor-pointer"></p>
-                    </div>
-                    <div class="answer"></div>
+                <div class="collapse collapse-plus bg-[#DDE] rounded-xl p-5">
+                    <input type="radio" name="faq-toggle" checked />
+                    <h4 class="collapse-title text-2xl font-semibold">Explain arrow functions and how they are different from regular functions?</h4>
+                    <p class="collapse-content">Arrow functions (=>) in JavaScript provide a concise syntax for writing functions. Unlike regular functions, they do not have their own this; instead, they inherit it from the surrounding scope, making them useful in callbacks. They also lack the arguments object and cannot be used as constructors. Arrow functions work best for simple expressions and callbacks, while regular functions are better when this or arguments is needed.</p>
                 </div>
-                <div class="faq-item bg-[#DDE] rounded-lg p-5">
-                    <div class="question-and-toggle flex justify-between items-center">
-                        <h6 class="question text-lg font-medium font-english">4. How <code>JavaScript</code> <code>Promises</code> work?</h6>
-                        <p class="fas fa-plus text-primary cursor-pointer"></p>
-                    </div>
-                    <div class="answer"></div>
+                <div class="collapse collapse-plus bg-[#DDE] rounded-xl p-5">
+                    <input type="radio" name="faq-toggle" checked />
+                    <h4 class="collapse-title text-2xl font-semibold">How JavaScript Promises work?</h4>
+                    <p class="collapse-content">JavaScript Promises handle asynchronous operations, preventing callback hell. A Promise has three states: pending, fulfilled, or rejected. It represents a future value and executes once completed. Use then() to handle success and catch() for errors.</p>
                 </div>
-                <div class="faq-item bg-[#DDE] rounded-lg p-5">
-                    <div class="question-and-toggle flex justify-between items-center">
-                        <h6 class="question text-lg font-medium font-english">5. How <code>Closure</code> works in <code>JavaScript</code>?</h6>
-                        <p class="fas fa-plus text-primary cursor-pointer"></p>
-                    </div>
-                    <div class="answer"></div>
+                <div class="collapse collapse-plus bg-[#DDE] rounded-xl p-5">
+                    <input type="radio" name="faq-toggle" checked />
+                    <h4 class="collapse-title text-2xl font-semibold">How closures work in JavaScript?</h4>
+                    <p class="collapse-content">In JavaScript, a closure is a function along with its lexical scope, which allows it to access variables from its outer (enclosing) scope even after that scope has finished executing. A closure allows a function to remember and access variables from the environment in which it was created, even if the function is executed in a different scope.</p>
                 </div>
             </section>
         </main>
@@ -158,10 +135,11 @@
             <div id="social" class="space-y-4">
                 <h6 class="font-semibold font-english text-[#18181B]">FOLLOW US</h6>
                 <div id="social-icons" class="flex gap-x-4 text-3xl">
-                    <a href="https://www.linkedin.com/in/riaurko/" target="_blank" title="450+ Followers
+                    <a href="https://www.linkedin.com/in/ninjaquasar/" target="_blank" title="450+ Followers
 375+ Connections" class="fab fa-linkedin hover:text-blue-700 hover:scale-125 transition-[transform_color] duration-200"></a>
-                    <a href="https://github.com/riaurko/" target="_blank" title="15+ Repositories" class="fab fa-github hover:text-slate-700 hover:scale-125 transition-[transform_color] duration-200"></a>
-                    <a href="https://www.facebook.com/riaurko" target="_blank" title="280+ Friends" class="fab fa-facebook hover:text-blue-500 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="https://github.com/ninjaquasar/" target="_blank" title="15+ Repositories" class="fab fa-github hover:text-slate-700 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="https://www.youtube.com/@mahnaf-wi1d" target="_blank" title="4 Subscribers" class="fab fa-youtube hover:text-rose-600 hover:scale-125 transition-[transform_color] duration-200"></a>
+                    <a href="https://www.facebook.com/mahnaf125" target="_blank" title="280+ Friends" class="fab fa-facebook hover:text-blue-500 hover:scale-125 transition-[transform_color] duration-200"></a>
                     <a href="https://x.com/riaurko" target="_blank" title="10+ Followers" class="fab fa-x-twitter hover:text-black hover:scale-125 transition-[transform_color] duration-200"></a>
                 </div>
             </div>
