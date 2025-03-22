@@ -5,7 +5,8 @@
 ? Build Vocabulary Details Modal for every Vocabulary Words Dynamically
 ? Apply Code-based LogIn and LogOut System
 ? Implement Smooth Scrolling on Bookmarks
-! Develop & Insert a Loading Spinner that appears only when the Lesson Vocabularies loads and displays
+? Develop & Insert a Loading Spinner that appears only when the Lesson Vocabularies loads and displays
+? Voice Pronounce Vocabularies by clicking the voice icon
 */
 
 
@@ -62,13 +63,13 @@ const displayWords = (words) => {
     const wordsContainer = document.getElementById('lesson-content');
     wordsContainer.innerHTML = "";
     wordsContainer.classList.replace('py-16', 'p-8');
-    wordsContainer.classList.add('grid', 'grid-cols-3', 'gap-8');
+    wordsContainer.classList.add('grid', 'grid-cols-3', 'gap-8', 'max-sm:grid-cols-1');
     for (const word of words) {
         const wordName = word.word;
         const wordMeaning = word.meaning;
         const wordPronunciation = word.pronunciation;
         const wordBox = document.createElement('div');
-        wordBox.classList.add('word-box', 'bg-[#EEF]', 'h-full', 'rounded-xl', 'p-12', 'space-y-5');
+        wordBox.classList.add('word-box', 'bg-[#EEF]', 'h-full', 'rounded-xl', 'p-12', 'space-y-5', 'max-sm:p-4');
         const wordId = document.createElement('p');
         wordId.innerText = word.id;
         wordId.classList.add('hidden');
@@ -201,4 +202,22 @@ const LogoutUser = () => {
     document.getElementById('vocabularies').classList.add('hidden');
     document.getElementById('faq').classList.add('hidden');
     document.getElementById('banner').classList.remove('hidden');
+}
+
+
+//! Task-7
+
+document.getElementById('lesson-content').addEventListener('click', function(event){
+    if (event.target.classList.contains('fa-volume-high'))
+    {
+        const clickedWord = event.target.parentNode.parentNode.firstChild.nextSibling.innerText;
+        pronounceWord(clickedWord);
+    }
+})
+
+const pronounceWord = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-EN';
+    utterance.volume = 0.5;
+    window.speechSynthesis.speak(utterance);
 }
